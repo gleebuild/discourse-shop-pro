@@ -1,0 +1,12 @@
+<div class="shop-products-page">
+  <h1>商城</h1>
+  <ul>
+    <% @products.each do |p| %>
+      <li>
+        <a href="/shop/public/products/<%= p[:id] %>"><%= p[:title] %></a>
+        - ¥<%= ('%.2f' % (p[:price_cents].to_i / 100.0)) %>
+      </li>
+    <% end %>
+  </ul>
+  <p>API: <code>/shop/public/products.json</code></p>
+</div>
