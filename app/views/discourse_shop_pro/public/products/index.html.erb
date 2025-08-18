@@ -1,0 +1,12 @@
+<div class="shop-products-page">
+  <h1>商城</h1>
+  <ul class="shop-list">
+    <% @products.each do |p| %>
+      <li class="shop-item">
+        <a class="title" href="/shop/public/products/<%= p[:id] %>"><%= p[:title] %></a>
+        <span class="price">¥<%= (p[:price_cents].to_i / 100.0).round(2) %></span>
+      </li>
+    <% end %>
+  </ul>
+  <p class="muted">需要 JSON? <code>/shop/public/products.json</code></p>
+</div>

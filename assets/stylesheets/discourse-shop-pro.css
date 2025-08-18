@@ -1,0 +1,6 @@
+.shop-products-page h1, .shop-product-page h1 { margin-bottom: 10px; }
+.shop-list { list-style: none; padding: 0; }
+.shop-item { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--primary-low); }
+.shop-item .title { font-weight: 600; }
+.price { font-weight: 700; }
+.muted { color: var(--secondary-high); font-size: 0.9em; }
