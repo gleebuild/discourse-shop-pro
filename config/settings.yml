@@ -1,4 +1,0 @@
-plugins:
-  shop_pro_enabled:
-    default: true
-    client: false
