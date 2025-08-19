@@ -1,0 +1,25 @@
+<h2>优惠券管理</h2>
+<p><a class="btn btn-primary" href="/admin/plugins/shop/coupons/new">新建优惠券</a></p>
+<table class="table">
+  <thead><tr><th>ID</th><th>Code</th><th>减免(分)</th><th>限制产品</th><th>有效</th><th>已用/上限</th><th></th></tr></thead>
+  <tbody>
+    <% @coupons.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.code %></td>
+        <td><%= c.amount_off_cents %></td>
+        <td><%= c.shop_product_id || "-" %></td>
+        <td><%= c.active %></td>
+        <td><%= c.times_used %>/<%= c.usage_limit || "-" %></td>
+        <td>
+          <a class="btn" href="/admin/plugins/shop/coupons/<%= c.id %>/edit">编辑</a>
+          <form action="/admin/plugins/shop/coupons/<%= c.id %>" method="post" style="display:inline">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button class="btn btn-danger" type="submit">删除</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
