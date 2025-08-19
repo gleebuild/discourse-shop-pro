@@ -1,0 +1,23 @@
+<h2><%= @product.title %></h2>
+<div class="shop-card">
+  <% if @product.image_url.present? %>
+    <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
+  <% end %>
+  <p>价格：¥ <%= (@product.price_cents/100.0).round(2) %></p>
+  <form action="/shop/orders" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="product_id" value="<%= @product.id %>">
+    <div>
+      数量：<input type="number" name="quantity" value="1" min="1" />
+    </div>
+    <div>
+      优惠券：<input type="text" name="coupon_code" placeholder="输入优惠码（可选）">
+    </div>
+    <div>
+      支付方式：
+      <label><input type="radio" name="mode" value="native" checked> PC扫码(Native)</label>
+      <label><input type="radio" name="mode" value="h5"> 手机浏览器(H5)</label>
+    </div>
+    <button class="btn btn-primary" type="submit">去支付</button>
+  </form>
+</div>
