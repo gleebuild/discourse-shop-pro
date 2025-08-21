@@ -1,6 +1,0 @@
-
-en:
-  site_settings:
-    shop_enabled: "Enable Shop"
-    shop_default_currency: "Default currency code"
-    shop_payment_providers: "Enabled payment providers (comma-separated)"
