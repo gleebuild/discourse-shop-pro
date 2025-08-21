@@ -1,0 +1,11 @@
+
+plugins:
+  shop_enabled:
+    default: true
+    client: true
+  shop_default_currency:
+    default: "CNY"
+    client: true
+  shop_payment_providers:
+    default: "sandbox,wechat,paypal"
+    client: true
