@@ -1,0 +1,30 @@
+
+{{#let this.model.product as |p|}}
+<div class="shop-product">
+  <div class="product-left">
+    {{#if p.image_url}}<img class="product-image" src={{p.image_url}} alt={{p.title}} />{{/if}}
+  </div>
+  <div class="product-right">
+    <h2>{{p.title}}</h2>
+    <div class="product-price">{{p.price_cents}} {{p.currency}}</div>
+    <div class="product-desc">{{p.description}}</div>
+
+    <div class="product-variant">
+      <label>选项</label>
+      <select id="variant">
+        <option value="">默认</option>
+        {{#each p.variants as |v|}}
+          <option value={{v.id}}>{{v.name}} (+{{v.price_cents}})</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="qty">
+      <label>数量</label>
+      <input id="qty" type="number" min="1" value="1" />
+    </div>
+
+    <a class="btn btn-primary" href={{concat "/shop/checkout?product_id=" p.id}}>下单</a>
+  </div>
+</div>
+{{/let}}
